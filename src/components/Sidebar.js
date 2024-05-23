@@ -179,9 +179,6 @@ const Sidebar = () => {
       </div>
       {/* edit user */}
 
-      {editUserOpen && (
-        <EditUserDetails onClose={() => setEditUserOpen(false)} user={user} />
-      )}
 
       {/**search user */}
 

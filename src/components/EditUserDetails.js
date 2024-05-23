@@ -54,9 +54,18 @@ const EditUserDetails = ({ onClose, user }) => {
     e.preventDefault();
     const URL = `${process.env.REACT_APP_BACKEND_URL}/api/user`;
     try {
-      const response = await axios.put(URL, data, {
-        withCredentials: true,
-      });
+      const {name, profile_pic} = data;
+      console.log(data,);
+      const response = await axios({
+        method:'put',
+        url:URL,
+        data:{
+          name,
+          profile_pic,
+          token: localStorage.getItem('token')
+        },
+        withCredentials:true
+      })
 
       toast.success(response?.data?.message);
       if (response.data.success) {
