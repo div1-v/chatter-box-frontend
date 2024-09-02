@@ -30,11 +30,13 @@ const Home = () => {
         navigate('/email');
       }
     } catch (error) {
+      navigate('/email');
       console.log(error);
     }
   }
 
   useEffect(()=>{
+    console.log("CALLED");
     fetchUserDetails();
   },[])
 
